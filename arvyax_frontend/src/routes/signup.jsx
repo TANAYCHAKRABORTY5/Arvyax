@@ -12,7 +12,7 @@ const SignupComponent = () => {
     try {
       const res = await API.post("/signup", { name, email, password });
       console.log("Account Created:", res.data);
-      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("token", res.data.user.token);
       navigate("/session");
     } catch (error) {
       console.error("Signup Failed: ", error.message);
